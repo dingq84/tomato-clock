@@ -1,7 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Todo from './Todo';
-import './index.css';
+import Sidebar from './Sidebar';
 
+import "./_base.scss";
+import './_index.scss';
 
-ReactDOM.render(<Todo />, document.getElementById('root'));
+ReactDOM.render(
+  <div className="clock">
+    <Todo />
+    <Sidebar />
+  </div>
+  ,
+  document.getElementById('root'));

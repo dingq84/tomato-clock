@@ -1,0 +1,15 @@
+.clock {
+  display: flex;
+  width: 1280px;
+  height: 800px;
+
+  &__container {
+    flex-grow: 1;
+    background-color: var(--color-primary);
+  }
+
+  &__sidebar {
+    width: 450px;
+    background-color: var(--color-secondary);
+  }
+}
