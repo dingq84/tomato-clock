@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 
 import {Form} from './Form';
 import {TodoList} from './TodoList';
@@ -7,70 +7,33 @@ import svgUrl from "./Assets/images/sprite.svg";
 
 import './_Todo.scss';
 
-let timer ='';
-
-export default function Todo(){
-  const [items, setItems] = useState([
-    {idx: 0, value: '寫程式', done: true, 'time': 1500},
-    {idx: 1, value: '練英文', done: true, 'time': 1500},
-    {idx: 2, value: '看直播', done: false, 'time': 1500},
-    {idx: 3, value: '打電玩', done: true, 'time': 1500}
-  ]);
-  const [onOff, setOnOff] = useState(false);
-  const [target, setTarget] = useState(items[0]);
-
-  clearTimeout(timer);
-  
-  if(onOff){
-    timer = setTimeout(() => {
-      countdown(target)
-    }, 1000);
-  }
-
-
-  function countdown(value){
-    const newItem = value;
-    newItem.time = value.time -1;
-    setItems([
-      ...items,
-      newItem
-    ]);
-  }
-
-  function formatMinute(secs){
-    const min = parseInt(secs / 60);
-    const sec = secs % 60 || '00';
-    return min.toString() + ':' + sec.toString();
-  }
-
-  function handleSubmitTodo(e, value){
-    e.preventDefault();
-    const newItems = [...items, {
-      idx: Math.max(...items.map(item => item.idx)) + 1,
-      value: value,
-      done: false
-    }];
-    setItems(newItems);
-  }
-
-  function handleChange(e, idx){
-    const newItems = [...items];
-    newItems[idx].done = !newItems[idx].done;
-    setItems(newItems);
-  }
+export default function Todo({
+  data, 
+  handleSubmitTodo, 
+  handleChange, 
+  formatMinute,
+  target,
+  setTarget,
+  onOff,
+  handleOnOffClick
+}){
 
   const itemsDOM = [];
-  for (let i = 0; i < items.length; i++){
+  for (let i = 0; i < data.length; i++){
+    if (i === 4)
+      break;
+
+    if(data[i] === target)
+      continue;
+    
     itemsDOM.push(
       <TodoList
-        key={items[i].idx}
-        data={items[i]}
+        key={data[i].idx}
+        data={data[i]}
         onChange={handleChange}
-        onClick={() => setTarget(items[i])}
+        onClick={() => setTarget(data[i])}
       />
     );
-    if (i === 3)
-      break;
   }
 
   return(
@@ -88,7 +51,7 @@ export default function Todo(){
         </div>
         <div className="clock__container--time--content">
           <svg
-            onClick={() => setOnOff(!onOff)}
+            onClick={handleOnOffClick}
           >
             {
               (onOff)?

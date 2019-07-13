@@ -26,11 +26,13 @@ export const Form = (props) => {
           value={text}
         />
       </label>
-      <label className={props.className + '--btn'}>
+      <label 
+        className={props.className + '--btn'}
+        onClick={handleClick}
+      >
         <svg>
           <use
             xlinkHref={`${svgUrl}#icon-add`}
-            onClick={handleClick}
           />:
         </svg>
       </label>

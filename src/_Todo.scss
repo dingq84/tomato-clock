@@ -101,6 +101,53 @@
       height: 32px;
       border-bottom: 1px solid #E5DAE8;
       position: relative;
+      margin-bottom: 2px;
+      
+      & svg:first-child {
+        cursor: pointer;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 22px;
+        height: 22px;
+        transition: .5s;
+      }
+
+      &--circle {
+        cursor: pointer;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 22px;
+        height: 22px;
+        border: 1px solid var(--color-secondary);
+        border-radius: 50%;
+        transition: .5s;
+      }
+
+      & span {
+        position: absolute;
+        left: 24px;
+        top: 4px;
+        font-size: 16px;
+        line-height: 16px;
+      }
+
+      &--text {
+        position: relative;
+
+        &::after {
+          content: '';
+          display: inline-block;
+          width: 100%;
+          transform: rotate(180deg);
+          border: 1px solid #fff;
+          
+          position: absolute;
+          top: 8px;
+          left: 0;
+        }
+      }
 
       &--btn {
         width: 24px;
@@ -112,8 +159,6 @@
         top: 0;
         bottom: 0;
         right: 0;
-        margin-top: auto;
-        margin-bottom: auto;
         cursor: pointer;
       }
 

@@ -6,20 +6,23 @@
     height: 36px;
     position: absolute;
     fill: #fff;
-    right: 85px;
+    // right: 85px;
     cursor: pointer;
   }
 
   &--button-1 {
     top: 48px;
+    right: 81.5px;
   }
 
   &--button-2 {
     top: 132px;
+    right: 81.5px;
   }
 
   &--button-3 {
     top: 216px;
+    right: 82px;
   }
 
 
@@ -57,5 +60,6 @@
     font-size: 24px;
     text-align: left;
     transform: rotate(90deg);
+    z-index: 2;
   }
 }
