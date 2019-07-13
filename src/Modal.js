@@ -8,18 +8,20 @@ import svgUrl from './Assets/images/sprite.svg';
 import './_Modal.scss';
 
 export default function Modal({
-    data, 
+    data,
     handleChange,
     handleSubmitTodo,
-    target, 
-    formatMinute, 
-    setTarget, 
-    onOff, 
+    target,
+    formatMinute,
+    setTarget,
+    onOff,
     handleOnOffClick
 }){
 const [openOrClose, setOpenOrClose] = useState(false);
-function handleModalOpen(){
+const [bookMark, setBookMark] = useState('');
+function handleModalOpen(value){
     setOpenOrClose(!openOrClose);
+    setBookMark(value);
 }
 
 const itemsTODODOM = [];
@@ -27,58 +29,73 @@ const itemsDONEDOM = [];
   for (let i = 0; i < data.length; i++){
     if(data[i].done)
         itemsDONEDOM.push(
-            <TodoList
+          <TodoList
             key={data[i].idx}
             data={data[i]}
             onChange={handleChange}
             onClick={() => setTarget(data[i])}
-            />
+          />
         )
     else
         itemsTODODOM.push(
-        <TodoList
-            key={data[i].idx}
-            data={data[i]}
-            onChange={handleChange}
-            onClick={() => setTarget(data[i])}
-        />
+          <TodoList
+              key={data[i].idx}
+              data={data[i]}
+              onChange={handleChange}
+              onClick={() => setTarget(data[i])}
+          />
         );
   }
 
-    const ModalDOM = 
-        <div 
+    const ModalDOM =
+        <div
             className="Modal"
             style={{display: (openOrClose) ? 'block' : 'none'}}
         >
             <div className="Modal__sidebar">
                 <div className="Modal__sidebar__btn">
-                    <div className="Modal__sidebar__btn--1">
-                        <svg 
-                    
+                    <div
+                      className="Modal__sidebar__btn--1"
+                      onClick={() => setBookMark(1)}
+                    >
+                        <svg
+                          style={{fill: bookMark === 1 ? '#FF4384' : ''}}
                         >
                             <use xlinkHref={`${svgUrl}#icon-sidebar`} />:
                         </svg>
-                        <div>TO-DO LIST</div>
+                        <div
+                          style={{color: bookMark === 1 ? '#FF4384' : ''}}
+                        >TO-DO LIST</div>
                     </div>
-                    <div className="Modal__sidebar__btn--2">
-                        <svg 
-            
+                    <div
+                      className="Modal__sidebar__btn--2"
+                      onClick={() => setBookMark(2)}
+                    >
+                        <svg
+                          style={{fill: bookMark === 2 ? '#FF4384' : ''}}
                         >
                             <use xlinkHref={`${svgUrl}#icon-assessment`} />:
                         </svg>
-                        <div>ANALYTICS</div>
+                        <div
+                          style={{color: bookMark === 2 ? '#FF4384' : ''}}
+                        >ANALYTICS</div>
                     </div>
-                    <div className="Modal__sidebar__btn--3">
-                        <svg 
-                        
+                    <div
+                      className="Modal__sidebar__btn--3"
+                      onClick={() => setBookMark(3)}
+                    >
+                        <svg
+                          style={{fill: bookMark === 3 ? '#FF4384' : ''}}
                         >
                             <use xlinkHref={`${svgUrl}#icon-musicplay`} />:
                         </svg>
-                        <div>RINGTONES</div>
+                        <div
+                          style={{color: bookMark === 3 ? '#FF4384' : ''}}
+                        >RINGTONES</div>
                     </div>
                 </div>
-                <div 
-                    className="Modal__sidebar__clock" 
+                <div
+                    className="Modal__sidebar__clock"
                     onClick={handleOnOffClick}
                 >
                     <svg
@@ -103,14 +120,14 @@ const itemsDONEDOM = [];
                 </div>
             </div>
             <div className="Modal__tododetail">
-                <Form 
+                <Form
                      className="Modal__tododetail__form"
                      onSubmitTodo={handleSubmitTodo}
                 />
                 <div className="Modal__tododetail__todo">
                     <div className="Modal__tododetail__todo__header">
                         TODO
-                    </div> 
+                    </div>
                     <div className="Modal__tododetail__todo__detail">
                         {itemsTODODOM}
                     </div>
@@ -124,7 +141,7 @@ const itemsDONEDOM = [];
                     </div>
                 </div>
             </div>
-            <svg 
+            <svg
                 className="Modal__close"
                 onClick={handleModalOpen}
             >

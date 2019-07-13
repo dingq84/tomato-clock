@@ -34,17 +34,17 @@
                 & svg {
                     width: 36px;
                     height: 36px;
-                    fill: var(--color-tertiary);
+                    fill: rgba(255, 255, 255, 0.2);//var(--color-tertiary);
                 }
 
                 & div {
                     margin-left: 8px;
                     height: 42px;
-                    color: var(--color-tertiary);
+                    color: rgba(255, 255, 255, 0.2);//var(--color-tertiary);
                     font-size: 36px;
                     line-height: 36px;
                 }
-               
+
            }
         }
 
@@ -56,7 +56,7 @@
             height: 350px;
             border-radius: 50%;
             background-color: #fff;
-            
+
             &::after {
                 content: '';
                 display: block;
@@ -91,7 +91,7 @@
             }
 
             &--text {
-                
+
                 &--time {
                     font-size: 64px;
                     line-height: 64px;
@@ -129,7 +129,7 @@
             position: relative;
             top: 0;
             &--text {
-        
+
               & input {
                 color: var(--color-tertiary);
                 height: 56px;
@@ -141,7 +141,7 @@
                 border-style: none;
               }
             }
-        
+
             &--btn {
               & svg {
                 width: 24px;
@@ -161,7 +161,7 @@
             top: 104px;
             // background-color: green;
             width: 100%;
-            
+
             &__header {
                 font-size: 24px;
                 line-height: 44px;
@@ -176,7 +176,7 @@
                 & div {
                     border-color: #fff;
                 }
-    
+
                 & svg {
                     fill: var(--color-secondary);
                     background-color: #fff;

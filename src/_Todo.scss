@@ -72,20 +72,6 @@
     &--content {
       font-size: 176px;
       color: var(--color-tertiary);
-
-      & svg {
-        width: 96px;
-        height: 96px;
-        fill: #fff;
-        background-color: var(--color-tertiary);;
-        // border-radius: 50%;
-        position: absolute;
-        transform: translate(-50%, -50%);
-        top: 50%;
-        right: -393px;
-        cursor: pointer;
-        z-index: 1;
-      }
     }
   }
 
@@ -102,7 +88,7 @@
       border-bottom: 1px solid #E5DAE8;
       position: relative;
       margin-bottom: 2px;
-      
+
       & svg:first-child {
         cursor: pointer;
         position: absolute;
@@ -142,7 +128,7 @@
           width: 100%;
           transform: rotate(180deg);
           border: 1px solid #fff;
-          
+
           position: absolute;
           top: 8px;
           left: 0;

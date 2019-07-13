@@ -9,16 +9,16 @@ let timer ='';
 
 export default function Main(){
     const [items, setItems] = useState([
-        {idx: 0, value: 'THE FIRST THING TO DO TODAY', done: true, 'time': 1500},
-        {idx: 1, value: 'THE SECOND THING TO DO TODAY', done: true, 'time': 1500},
+        {idx: 0, value: 'THE FIRST THING TO DO TODAY', done: false, 'time': 1500},
+        {idx: 1, value: 'THE SECOND THING TO DO TODAY', done: false, 'time': 1500},
         {idx: 2, value: 'THE THIRD THING TO DO TODAY', done: false, 'time': 1500},
-        {idx: 3, value: 'THE FORTH THING TO DO TODAY', done: true, 'time': 1500}
+        {idx: 3, value: 'THE FORTH THING TO DO TODAY', done: false, 'time': 1500}
     ]);
     const [onOff, setOnOff] = useState(false);
     const [target, setTarget] = useState(items[0]);
 
     clearTimeout(timer);
-  
+
     if(onOff){
         timer = setTimeout(() => {
         countdown(target)
@@ -43,7 +43,6 @@ export default function Main(){
     }
 
     function countdown(value){
-        console.log(value.idx);
         value.time = value.time -1;
         setItems([
           ...items
@@ -62,17 +61,17 @@ export default function Main(){
 
     return (
         <div className="clock">
-            <Todo  
-                data={items} 
-                handleSubmitTodo={handleSubmitTodo} 
+            <Todo
+                data={items}
+                handleSubmitTodo={handleSubmitTodo}
                 handleChange={handleChange}
                 formatMinute={formatMinute}
                 onOff={onOff}
                 target={target}
                 setTarget={setTarget}
-                handleOnOffClick={handleOnOffClick} 
+                handleOnOffClick={handleOnOffClick}
             />
-            <Sidebar 
+            <Sidebar
                 data={items}
                 handleSubmitTodo={handleSubmitTodo}
                 handleChange={handleChange}
@@ -80,7 +79,7 @@ export default function Main(){
                 target={target}
                 setTarget={setTarget}
                 onOff={onOff}
-                handleOnOffClick={handleOnOffClick} 
+                handleOnOffClick={handleOnOffClick}
             />
         </div>
     );

@@ -5,7 +5,7 @@ import svgUrl from "./Assets/images/sprite.svg";
 import './_Sidebar.scss';
 
 export default function Sidebar({
-  data, 
+  data,
   handleChange,
   handleSubmitTodo,
   formatMinute,
@@ -15,7 +15,7 @@ export default function Sidebar({
   handleOnOffClick
 }){
   const [ModalDOM, handleModalOpen] = Modal({
-    data: data, 
+    data: data,
     handleSubmitTodo: handleSubmitTodo,
     handleChange: handleChange,
     formatMinute: formatMinute,
@@ -26,26 +26,42 @@ export default function Sidebar({
   });
   return (
     <div className="clock__sidebar">
-      <svg 
+      <input
+        type='checkbox'
+        id='clock__onoff'
+        style={{display: 'none'}}
+      / >
+      <svg
         className="clock__sidebar--button-1"
-        onClick={handleModalOpen}
+        onClick={() => handleModalOpen(1)}
       >
         <use xlinkHref={`${svgUrl}#icon-sidebar`} />:
       </svg>
-      <svg 
+      <svg
         className="clock__sidebar--button-2"
-        onClick={handleModalOpen}
+        onClick={() => handleModalOpen(2)}
       >
         <use xlinkHref={`${svgUrl}#icon-assessment`} />:
       </svg>
-      <svg 
+      <svg
         className="clock__sidebar--button-3"
-        onClick={handleModalOpen}
+        onClick={() => handleModalOpen(3)}
       >
         <use xlinkHref={`${svgUrl}#icon-musicplay`} />:
       </svg>
       <div className="clock__sidebar--picture">
-
+        <label htmlFor="clock__onoff">
+          <svg
+            onClick={handleOnOffClick}
+            >
+              {
+                (onOff)?
+                <use xlinkHref={`${svgUrl}#icon-pause`}/>
+                :
+                <use xlinkHref={`${svgUrl}#icon-play`}/>
+              }
+            </svg>
+        </label>
       </div>
       <div className="clock__sidebar--text">
         PROMODORO

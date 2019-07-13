@@ -8,9 +8,9 @@ import svgUrl from "./Assets/images/sprite.svg";
 import './_Todo.scss';
 
 export default function Todo({
-  data, 
-  handleSubmitTodo, 
-  handleChange, 
+  data,
+  handleSubmitTodo,
+  handleChange,
   formatMinute,
   target,
   setTarget,
@@ -20,20 +20,19 @@ export default function Todo({
 
   const itemsDOM = [];
   for (let i = 0; i < data.length; i++){
-    if (i === 4)
+    if (itemsDOM.length === 4)
       break;
-
-    if(data[i] === target)
+    else if(data[i] === target || data[i].done)
       continue;
-    
-    itemsDOM.push(
-      <TodoList
-        key={data[i].idx}
-        data={data[i]}
-        onChange={handleChange}
-        onClick={() => setTarget(data[i])}
-      />
-    );
+    else
+      itemsDOM.push(
+        <TodoList
+          key={data[i].idx}
+          data={data[i]}
+          onChange={handleChange}
+          onClick={() => setTarget(data[i])}
+        />
+      );
   }
 
   return(
@@ -50,16 +49,6 @@ export default function Todo({
           </div>
         </div>
         <div className="clock__container--time--content">
-          <svg
-            onClick={handleOnOffClick}
-          >
-            {
-              (onOff)?
-                <use xlinkHref={`${svgUrl}#icon-pause`}/>
-                :
-                <use xlinkHref={`${svgUrl}#icon-play`}/>
-            }
-          </svg>
           {formatMinute(target.time)}
         </div>
       </div>
