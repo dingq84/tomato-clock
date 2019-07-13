@@ -1,52 +1,24 @@
 import React, {useState} from 'react';
 
+import FetchData from './FetchData';
 import Todo from './Todo';
 import Sidebar from './Sidebar';
+import Modal from './Modal';
 
 import './_Main.scss';
 
 let timer ='';
 
 export default function Main(){
-    const [items, setItems] = useState([
-        {idx: 0, value: 'THE FIRST THING TO DO TODAY', done: false, 'time': 1500},
-        {idx: 1, value: 'THE SECOND THING TO DO TODAY', done: false, 'time': 1500},
-        {idx: 2, value: 'THE THIRD THING TO DO TODAY', done: false, 'time': 1500},
-        {idx: 3, value: 'THE FORTH THING TO DO TODAY', done: false, 'time': 1500}
-    ]);
+    const [items, handleSubmitTodo, handleChange, countdown] = FetchData();
     const [onOff, setOnOff] = useState(false);
     const [target, setTarget] = useState(items[0]);
 
     clearTimeout(timer);
-
     if(onOff){
         timer = setTimeout(() => {
         countdown(target)
         }, 1000);
-    }
-
-    function handleSubmitTodo(e, value){
-        e.preventDefault();
-        const newItems = [...items, {
-          idx: Math.max(...items.map(item => item.idx)) + 1,
-          value: value,
-          time: 1500,
-          done: false
-        }];
-        setItems(newItems);
-    }
-
-    function handleChange(e, idx){
-        const newItems = [...items];
-        newItems[idx].done = !newItems[idx].done;
-        setItems(newItems);
-    }
-
-    function countdown(value){
-        value.time = value.time -1;
-        setItems([
-          ...items
-        ]);
     }
 
     function formatMinute(secs){
@@ -59,6 +31,16 @@ export default function Main(){
         setOnOff(!onOff);
     }
 
+    const [ModalDOM, handleModalOpen] = Modal({
+      data: items,
+      handleSubmitTodo: handleSubmitTodo,
+      handleChange: handleChange,
+      formatMinute: formatMinute,
+      target: target,
+      setTarget: setTarget,
+      onOff: onOff,
+      handleOnOffClick: handleOnOffClick
+    });
     return (
         <div className="clock">
             <Todo
@@ -70,6 +52,7 @@ export default function Main(){
                 target={target}
                 setTarget={setTarget}
                 handleOnOffClick={handleOnOffClick}
+                handleModalOpen={handleModalOpen}
             />
             <Sidebar
                 data={items}
@@ -80,7 +63,9 @@ export default function Main(){
                 setTarget={setTarget}
                 onOff={onOff}
                 handleOnOffClick={handleOnOffClick}
+                handleModalOpen={handleModalOpen}
             />
+            {ModalDOM}
         </div>
     );
 }

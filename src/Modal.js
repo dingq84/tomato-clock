@@ -19,9 +19,20 @@ export default function Modal({
 }){
 const [openOrClose, setOpenOrClose] = useState(false);
 const [bookMark, setBookMark] = useState('');
+const [expand, setExpand] = useState({
+  'todo': true,
+  'done': true
+});
 function handleModalOpen(value){
     setOpenOrClose(!openOrClose);
     setBookMark(value);
+}
+
+function expandOrCollapse(type){
+  setExpand({
+    ...expand,
+    [type]: !expand[type]
+  })
 }
 
 const itemsTODODOM = [];
@@ -125,18 +136,49 @@ const itemsDONEDOM = [];
                      onSubmitTodo={handleSubmitTodo}
                 />
                 <div className="Modal__tododetail__todo">
-                    <div className="Modal__tododetail__todo__header">
+                    <div
+                      className="Modal__tododetail__todo__header"
+                      onClick={() => expandOrCollapse('todo')}
+                    >
+                      <svg >
+                          {
+                            expand['todo'] ?
+                            <use xlinkHref={`${svgUrl}#icon-down`} />:
+                            <use xlinkHref={`${svgUrl}#icon-up`} />
+                          }
+
+                      </svg>
                         TODO
                     </div>
-                    <div className="Modal__tododetail__todo__detail">
+                    <div
+                      className="Modal__tododetail__todo__detail"
+                      style={{
+                        display: expand['todo'] ? 'block' : 'none',
+                        transition: '.5s'
+                      }}
+                    >
                         {itemsTODODOM}
                     </div>
                 </div>
                 <div className="Modal__tododetail__done">
-                    <div className="Modal__tododetail__done__header">
+                    <div
+                      className="Modal__tododetail__done__header"
+                      onClick={() => expandOrCollapse('done')}
+                    >
+                      <svg >
+                          {
+                            expand['done'] ?
+                            <use xlinkHref={`${svgUrl}#icon-down`} />:
+                            <use xlinkHref={`${svgUrl}#icon-up`} />
+                          }
+
+                      </svg>
                         DONE
                     </div>
-                    <div className="Modal__tododetail__done__detail">
+                    <div
+                      className="Modal__tododetail__done__detail"
+                      style={{display: expand['done'] ? 'block' : 'none'}}
+                    >
                         {itemsDONEDOM}
                     </div>
                 </div>

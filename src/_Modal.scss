@@ -1,16 +1,16 @@
 .Modal {
     width: 1280px;
     height: 800px;
-    position: relative;
+    position: absolute;
     top: 0;
-    left: -830px;
+    left: 0;
     right: 0;
     bottom: 0;
     margin: auto;
     z-index: 1;
     background-color: var(--color-secondary);
     overflow: hidden;
-    transition: all 2s;
+    transition: display 2s;
 
 
     &__sidebar {
@@ -169,6 +169,19 @@
                 height: 44px;
                 background-color: rgba(255, 255, 255, 0.2);
                 margin-bottom: 16px;
+                position: relative;
+
+                & svg {
+                  width: 24px;
+                  height: 24px;
+                  position: absolute;
+                  top: 0;
+                  bottom: 0;
+                  display: block;
+                  margin-top: auto;
+                  margin-bottom: auto;
+                  right: 16px;
+                }
             }
             &__detail {
                 height: 200px;
@@ -197,6 +210,19 @@
                 height: 44px;
                 background-color: rgba(255, 255, 255, 0.2);
                 margin-bottom: 16px;
+                position: relative;
+                
+                & svg {
+                  width: 24px;
+                  height: 24px;
+                  position: absolute;
+                  top: 0;
+                  bottom: 0;
+                  display: block;
+                  margin-top: auto;
+                  margin-bottom: auto;
+                  right: 16px;
+                }
             }
             &__detail {
                 height: 200px;

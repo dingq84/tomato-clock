@@ -3,8 +3,6 @@ import React from 'react';
 import {Form} from './Form';
 import {TodoList} from './TodoList';
 
-import svgUrl from "./Assets/images/sprite.svg";
-
 import './_Todo.scss';
 
 export default function Todo({
@@ -15,7 +13,8 @@ export default function Todo({
   target,
   setTarget,
   onOff,
-  handleOnOffClick
+  handleOnOffClick,
+  handleModalOpen
 }){
 
   const itemsDOM = [];
@@ -54,7 +53,10 @@ export default function Todo({
       </div>
       <div className="clock__container--list">
         {itemsDOM}
-        <button className="clock__container--list--btn">
+        <button
+          className="clock__container--list--btn"
+          onClick={() => handleModalOpen(1)}
+        >
           MORE
         </button>
       </div>

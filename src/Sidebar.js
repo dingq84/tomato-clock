@@ -1,6 +1,5 @@
 import React from 'react';
 
-import Modal from './Modal';
 import svgUrl from "./Assets/images/sprite.svg";
 import './_Sidebar.scss';
 
@@ -12,18 +11,9 @@ export default function Sidebar({
   target,
   setTarget,
   onOff,
-  handleOnOffClick
+  handleOnOffClick,
+  handleModalOpen
 }){
-  const [ModalDOM, handleModalOpen] = Modal({
-    data: data,
-    handleSubmitTodo: handleSubmitTodo,
-    handleChange: handleChange,
-    formatMinute: formatMinute,
-    target: target,
-    setTarget: setTarget,
-    onOff: onOff,
-    handleOnOffClick: handleOnOffClick
-  });
   return (
     <div className="clock__sidebar">
       <input
@@ -66,7 +56,6 @@ export default function Sidebar({
       <div className="clock__sidebar--text">
         PROMODORO
       </div>
-      {ModalDOM}
     </div>
   )
 }
