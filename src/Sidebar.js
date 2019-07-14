@@ -13,14 +13,14 @@ export default function Sidebar({
   onOff,
   handleOnOffClick,
   handleModalOpen
-}){
+}) {
   return (
     <div className="clock__sidebar">
       <input
         type='checkbox'
         id='clock__onoff'
-        style={{display: 'none'}}
-      / >
+        style={{ display: 'none' }}
+      />
       <svg
         className="clock__sidebar--button-1"
         onClick={() => handleModalOpen(1)}
@@ -43,14 +43,14 @@ export default function Sidebar({
         <label htmlFor="clock__onoff">
           <svg
             onClick={handleOnOffClick}
-            >
-              {
-                (onOff)?
-                <use xlinkHref={`${svgUrl}#icon-pause`}/>
+          >
+            {
+              (onOff) ?
+                <use xlinkHref={`${svgUrl}#icon-pause`} />
                 :
-                <use xlinkHref={`${svgUrl}#icon-play`}/>
-              }
-            </svg>
+                <use xlinkHref={`${svgUrl}#icon-play`} />
+            }
+          </svg>
         </label>
       </div>
       <div className="clock__sidebar--text">

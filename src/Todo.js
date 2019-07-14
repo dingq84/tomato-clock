@@ -1,7 +1,7 @@
 import React from 'react';
 
-import {Form} from './Form';
-import {TodoList} from './TodoList';
+import { Form } from './Form';
+import { TodoList } from './TodoList';
 
 import './_Todo.scss';
 
@@ -12,16 +12,14 @@ export default function Todo({
   formatMinute,
   target,
   setTarget,
-  onOff,
-  handleOnOffClick,
   handleModalOpen
-}){
+}) {
 
   const itemsDOM = [];
-  for (let i = 0; i < data.length; i++){
+  for (let i = 0; i < data.length; i++) {
     if (itemsDOM.length === 4)
       break;
-    else if(data[i] === target || data[i].done)
+    else if (data[i] === target || data[i].done)
       continue;
     else
       itemsDOM.push(
@@ -34,7 +32,7 @@ export default function Todo({
       );
   }
 
-  return(
+  return (
     <div className="clock__container">
       <Form
         className="clock__container--inputBar"

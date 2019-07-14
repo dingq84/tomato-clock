@@ -1,49 +1,48 @@
 // COLOR VARIABLES
 :root {
-  --color-primary: #FFEDF7;
+  --color-primary: #ffedf7;
 
   --color-secondary: #003164;
 
-  --color-tertiary: #FF4384;
-
+  --color-tertiary: #ff4384;
 
   // FONT VARIABLES
-  --font-primary: 'Nunito', sans-serif;
-  --font-display: 'Josefin Sans', sans-serif;
+  --font-primary: "Roboto", sans-serif;
+  --font-display: "Josefin Sans", sans-serif;
 
   // RESPONSIVE BREAKPOINTS
-  --bp-largest: 75em;   // 1200px
-  --bp-large: 62.5em;   // 1000px
-  --bp-medium: 50em;    // 800px;
-  --bp-small: 37.5em;    // 600px;
+  --bp-largest: 75em; // 1200px
+  --bp-large: 62.5em; // 1000px
+  --bp-medium: 50em; // 800px;
+  --bp-small: 37.5em; // 600px;
 }
 
 *,
 *::before,
 *::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
 }
 
 html {
-    box-sizing: border-box;
-    font-size: 62.5%; // 10px/16px = 62.5% -> 1rem = 10px
+  box-sizing: border-box;
+  font-size: 62.5%; // 10px/16px = 62.5% -> 1rem = 10px
 
-    @media only screen and (max-width: var(--bp-largest)) {
-        font-size: 50%;
-    }
+  @media only screen and (max-width: var(--bp-largest)) {
+    font-size: 50%;
+  }
 }
 
 body {
-    font-family: var(--font-primary);
-    //color: var(--color-grey-dark-2);
-    color: var(--color-secondary);
-    font-weight: 300;
-    line-height: 1.6;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #777777;
+  font-family: var(--font-primary);
+  //color: var(--color-grey-dark-2);
+  color: var(--color-secondary);
+  font-weight: 300;
+  line-height: 1.6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #777777;
 }

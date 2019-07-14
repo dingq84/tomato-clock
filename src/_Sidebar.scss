@@ -1,18 +1,15 @@
 .clock__sidebar {
   position: relative;
 
-  #clock__onoff:checked ~ &--picture{
-      background-color: #fff;
-      border: 5px solid var(--color-tertiary);
+  #clock__onoff:checked ~ &--picture {
+    background-color: #fff;
+    border: 5px solid var(--color-tertiary);
 
-      &::after {
-        background-color: var(--color-tertiary);
-        z-index: -1;
-      }
-
+    &::after {
+      background-color: var(--color-tertiary);
+      z-index: -1;
+    }
   }
-
-
 
   & > svg {
     width: 36px;
@@ -38,7 +35,6 @@
     right: 82px;
   }
 
-
   &--picture {
     position: absolute;
     width: 510px;
@@ -54,7 +50,7 @@
     background-color: var(--color-tertiary);
 
     &::after {
-      content: '';
+      content: "";
       border-radius: 50%;
       border: 5px solid var(--color-tertiary);
       // background-color: #fff;
@@ -65,14 +61,13 @@
       display: block;
       width: 540px;
       height: 540px;
-
     }
 
     & svg {
       width: 96px;
       height: 96px;
       fill: #fff;
-      background-color: var(--color-tertiary);;
+      background-color: var(--color-tertiary);
       border-radius: 50%;
       position: absolute;
       transform: translate(-50%, -50%);
