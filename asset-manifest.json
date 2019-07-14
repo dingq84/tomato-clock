@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/dingq84/tomato-clock.git/static/css/main.22e4f59d.chunk.css",
-    "main.js": "/dingq84/tomato-clock.git/static/js/main.305dbc0e.chunk.js",
-    "main.js.map": "/dingq84/tomato-clock.git/static/js/main.305dbc0e.chunk.js.map",
-    "runtime~main.js": "/dingq84/tomato-clock.git/static/js/runtime~main.da9345bc.js",
-    "runtime~main.js.map": "/dingq84/tomato-clock.git/static/js/runtime~main.da9345bc.js.map",
-    "static/js/2.3f8e065d.chunk.js": "/dingq84/tomato-clock.git/static/js/2.3f8e065d.chunk.js",
-    "static/js/2.3f8e065d.chunk.js.map": "/dingq84/tomato-clock.git/static/js/2.3f8e065d.chunk.js.map",
-    "index.html": "/dingq84/tomato-clock.git/index.html",
-    "precache-manifest.c424612e528bcf9defe217e9513f73ff.js": "/dingq84/tomato-clock.git/precache-manifest.c424612e528bcf9defe217e9513f73ff.js",
-    "service-worker.js": "/dingq84/tomato-clock.git/service-worker.js",
-    "static/css/main.22e4f59d.chunk.css.map": "/dingq84/tomato-clock.git/static/css/main.22e4f59d.chunk.css.map",
-    "static/media/sprite.svg": "/dingq84/tomato-clock.git/static/media/sprite.4ef730b4.svg"
+    "main.css": "/tomato-clock/static/css/main.22e4f59d.chunk.css",
+    "main.js": "/tomato-clock/static/js/main.305dbc0e.chunk.js",
+    "main.js.map": "/tomato-clock/static/js/main.305dbc0e.chunk.js.map",
+    "runtime~main.js": "/tomato-clock/static/js/runtime~main.31a70f99.js",
+    "runtime~main.js.map": "/tomato-clock/static/js/runtime~main.31a70f99.js.map",
+    "static/js/2.3f8e065d.chunk.js": "/tomato-clock/static/js/2.3f8e065d.chunk.js",
+    "static/js/2.3f8e065d.chunk.js.map": "/tomato-clock/static/js/2.3f8e065d.chunk.js.map",
+    "index.html": "/tomato-clock/index.html",
+    "precache-manifest.c37e8491477603982add5ca722cf940e.js": "/tomato-clock/precache-manifest.c37e8491477603982add5ca722cf940e.js",
+    "service-worker.js": "/tomato-clock/service-worker.js",
+    "static/css/main.22e4f59d.chunk.css.map": "/tomato-clock/static/css/main.22e4f59d.chunk.css.map",
+    "static/media/sprite.svg": "/tomato-clock/static/media/sprite.4ef730b4.svg"
   }
 }
